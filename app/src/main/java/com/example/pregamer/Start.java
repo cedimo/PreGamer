@@ -66,7 +66,31 @@ public class Start extends AppCompatActivity {
                                     layout.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            //TODO
+                                            setContentView(R.layout.activity_main);
+
+                                            Button button1 = (Button) findViewById(R.id.button1);
+                                            button1.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    startActivity(new Intent(Start.this, Busfahrer.class));
+                                                }
+                                            });
+
+                                            Button button2 = (Button) findViewById(R.id.button2);
+                                            button2.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    startActivity(new Intent(Start.this, Dreimann_Regeln.class));
+                                                }
+                                            });
+
+                                            Button button3 = (Button) findViewById(R.id.button3);
+                                            button3.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    startActivity(new Intent(Start.this, KingsCup.class));
+                                                }
+                                            });
                                         }
                                     });
                                 } else {
