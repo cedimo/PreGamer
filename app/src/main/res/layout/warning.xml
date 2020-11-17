@@ -15,7 +15,7 @@
         android:ems="10"
         android:gravity="center|top"
         android:inputType="textMultiLine"
-        android:text="Bitte beachtet, dass der Missbrauch von Alkohol schädlich für die Gesundheit ist. Mit der weiteren Nutzung von PreGamer bestätigt ihr, dass ihr für eventuelle Konsequenzen selbst die Verantwortung tragt."
+        android:text="@string/warning"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
