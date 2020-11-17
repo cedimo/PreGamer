@@ -10,15 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PreGamer">
         <activity android:name=".Start">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+          <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".Dreimann"></activity>
+        <activity android:name=".Dreimann_Regeln" />
+        <activity android:name=".Busfahrer" />
+        <activity android:name=".KingsCup" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
