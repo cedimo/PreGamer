@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PreGamer">
-        <activity android:name=".KingsCup"></activity>
+        <activity android:name=".Dreimann"></activity>
+        <activity android:name=".Dreimann_Regeln" />
+        <activity android:name=".Busfahrer" />
+        <activity android:name=".KingsCup" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
