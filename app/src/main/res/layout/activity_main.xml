@@ -21,18 +21,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:width="320dp"
-        android:height="60dp"
+        android:height="80dp"
         android:text="Busfahren"
         android:textSize="18sp"
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_main"
+        app:rippleColor="@color/purple_our"
         app:strokeColor="@color/grey_our"
         app:strokeWidth="2dp" />
 
@@ -40,15 +41,16 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:width="320dp"
-        android:height="60dp"
+        android:height="80dp"
         android:text="Dreimann"
         android:textSize="18sp"
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:rippleColor="@color/purple_our"
         app:strokeColor="@color/grey_our"
         app:strokeWidth="2dp" />
 
@@ -56,15 +58,16 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:width="320dp"
-        android:height="60dp"
+        android:height="80dp"
         android:text="Kings Cup"
         android:textSize="18sp"
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:rippleColor="@color/purple_our"
         app:strokeColor="@color/grey_our"
         app:strokeWidth="2dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
