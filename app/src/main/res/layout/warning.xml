@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/warning"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Start">
+
+
+    <TextView
+        android:id="@+id/warning_text"
+        android:layout_width="270sp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center|top"
+        android:inputType="textMultiLine"
+        android:text="Bitte beachtet, dass der Missbrauch von Alkohol schädlich für die Gesundheit ist. Mit der weiteren Nutzung von PreGamer bestätigt ihr, dass ihr für eventuelle Konsequenzen selbst die Verantwortung tragt."
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/warning_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Warnung!"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/warning_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="140dp"
+        android:width="200dp"
+        android:text="Verstanden"
+        android:textColor="@color/green_our"
+        app:cornerRadius="50dp"
+        app:rippleColor="@color/green_our"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/green_our"
+        app:strokeWidth="2dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
