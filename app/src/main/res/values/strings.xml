@@ -1,3 +1,61 @@
 <resources>
     <string name="app_name">PreGamer</string>
+
+    <string name="kingscup_buildup">
+        <b>Das braucht ihr:\n</b>
+        - Kartendeck (je nach Version Skat- oder Rommé-Deck)\n
+        - ein Getränk pro Person\n
+        - ein leeres Glas
+    </string>
+    <string name="kingscup_material">
+        <b>Aufbau:\n</b>
+        - mischt die Karten\n
+        - stellt das leere Glas in die Mitte des Tischs\n
+        - legt die Karten verdeckt in einem Kreis um das Glas
+    </string>
+    <string name="kingscup_rules">
+        <b>Regeln:\n</b>
+        Zieht nacheinander eine Karte und führt die Aufgabe aus. Wer den Kreis durchbricht, muss sein Glas austrinken.\n\n
+        2 = Vergib 2 Schlucke\n
+        3 = Getränk wechseln\n
+        4 = Vergib 2 und Trink 2 Schlucke\n
+        5 = Alle Männer trinken\n
+        6 = Alle Frauen trinken\n
+        7 = Person links muss trinken\n
+        8 = Person rechst muss trinken\n
+        9 = Trinke 1 Schluck\n
+        10 = Trinkpartner aussuchen\n
+        Bube = Regel ausdenken\n
+        Königin = Question Master\n
+        König = King\'s Cup Schluck\n
+        Ass = Alle trinken!
+    </string>
+
+    <string name="busfahrer_rules">
+        <b>Regeln:\n</b>
+        Es wird eine Pyramide gebaut aus mindestens 10 Karten. Das restliche Kartendeck wird auf die restlichen Spieler verteilt. Jetzt wird nacheinander (von unten beginnend) jede Karte aufgedeckt. Ziel ist es, seine Karten während des Spiels loszuwerden. Das kann man, wenn man eine Karte mit dem selben Wert hat, wie die aufgedeckte. Die Karte kann dann an eine beliebige Person weitergegeben werden. Je nach Ebene der Pyramide muss diese Person dann 1-4 Schlücke trinken.\n
+        Die Person, die am Ende am meisten Karten auf der Hand hat, ist nun der Busfahrer.\n\n
+
+        Für die Runde des Busfahrers werden 4 Karten verdeckt auf den Tisch gelegt. Der Busfahrer muss nun vor dem Aufdecken folgende Fragen beantworten:\n
+        •	Karte 1: Ist die Karte rot oder schwarz?\n
+        •	Karte 2: Ist der Wert der Karte höher oder tiefer als der seiner vorherigen Karte?\n
+        •	Karte 3: Liegt der Zahlenwert der Karte inner- oder außerhalb der Wertspanne oder ist dieser gleich?\n
+        •	Karte 4: Ist die Karte Herz, Pik, Karo oder Kreuz?\n\n
+        Beantwortet er eine Frage falsch, muss er trinken und die Busfahrt beginnt wieder bei 1. Die Busfahrt geht solange, bis er jede Frage hintereinander richtig beantwortet oder das Kartendeck aufgebraucht ist.
+    </string>
+
+    <string name="dreimann_rules">
+        <b>Regeln:\n</b>
+        mind. 4 Personen + 2 Würfel\n\n
+
+        Alle Spieler würfeln zuerst mit einem Würfel, solange bis jemand eine 3 würfelt. Diese Person ist dann der Dreimann.\n
+        Ab jetzt würfelt jeder mit zwei Würfeln.\n\n
+        •	3 auf einem Würfel oder Summe ergibt 3 -> Dreimann muss trinken\n
+        •	7 -> Linker Nachbar trinkt\n
+        •	8 -> Rechter Nachbar trinkt\n
+        •	9 -> Spieler kann sich eine Regel ausdenken (Wenn jemand die Regel nicht einhält, muss die Person trinken)\n
+        •	10 -> Alle schlagen sich gegen die Stirn (Der letzte muss trinken)\n
+        •	Pasch -> Spieler darf Schlücke in Höhe der Augenzahl verteilen\n\n
+        Die Runde ist vorbei, wenn der Dreimann einen Pasch würfelt. Es wird erneut mit nur einem Würfel gewürfelt bis eine Person eine 3 Würfelt und nun in der nächsten Runde der Dreimann ist.
+    </string>
 </resources>
