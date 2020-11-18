@@ -7,106 +7,101 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.ZoneId;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class Start extends AppCompatActivity {
-    private int bday = 0;
-    private int bmonth = 0;
-    private int byear = 0;
+    private final LocalDate birthDate = Instant.ofEpochMilli(getMillis()).atZone(ZoneId.systemDefault()).toLocalDate();
+    private int birthDay = birthDate.getDayOfMonth();
+    private int birthMonth = birthDate.getMonthValue();
+    private int birthYear = birthDate.getYear();
 
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        Button playAsGuest = (Button) findViewById(R.id.guest_play);
+        Button playAsGuest = findViewById(R.id.guest_play);
 
-        playAsGuest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.warning);
+        playAsGuest.setOnClickListener(v -> launchWarning());
+    }
 
-                Button acceptwarning = (Button) findViewById(R.id.accept);
 
-                acceptwarning.setOnClickListener(new View.OnClickListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.O)
-                    @Override
-                    public void onClick(View v) {
-                        setContentView(R.layout.age);
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void launchWarning() {
+        setContentView(R.layout.warning);
 
-                        DatePicker dateOfBirth = (DatePicker) findViewById(R.id.datePicker);
-                        dateOfBirth.setMaxDate(getMillis());
+        Button acceptWarning = findViewById(R.id.accept);
 
-                        dateOfBirth.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
-                            @Override
-                            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                bday = dayOfMonth;
-                                bmonth = monthOfYear;
-                                byear = year;
-                            }
-                        });
+        acceptWarning.setOnClickListener(v -> launchAgeInput());
+    }
 
-                        Button enterAge = (Button) findViewById(R.id.enterage);
 
-                        enterAge.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                LocalDate dayOfBirth = LocalDate.of(byear, bmonth+1, bday);
-                                int age = Period.between(dayOfBirth, getDate()).getYears();
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void launchAgeInput() {
+        setContentView(R.layout.age);
 
-                                if(age>17){
-                                    setContentView(R.layout.overage);
-                                    ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.overage);
-                                    layout.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            setContentView(R.layout.activity_main);
+        DatePicker dateOfBirth = findViewById(R.id.datePicker);
+        dateOfBirth.setMaxDate(getMillis());
 
-                                            Button button1 = (Button) findViewById(R.id.button1);
-                                            button1.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    startActivity(new Intent(Start.this, Busfahrer.class));
-                                                }
-                                            });
+        dateOfBirth.setOnDateChangedListener((view, year, monthOfYear, dayOfMonth) -> {
+            birthDay = dayOfMonth;
+            birthMonth = monthOfYear + 1;
+            birthYear = year;
+        });
 
-                                            Button button2 = (Button) findViewById(R.id.button2);
-                                            button2.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    startActivity(new Intent(Start.this, Dreimann_Regeln.class));
-                                                }
-                                            });
+        Button enterAge = findViewById(R.id.enterage);
 
-                                            Button button3 = (Button) findViewById(R.id.button3);
-                                            button3.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    startActivity(new Intent(Start.this, KingsCup.class));
-                                                }
-                                            });
-                                        }
-                                    });
-                                } else {
-                                    setContentView(R.layout.underage);
-                                }
-                            }
-                        });
-                    }
-                });
+        enterAge.setOnClickListener(v -> {
+            LocalDate dayOfBirth = LocalDate.of(birthYear, birthMonth, birthDay);
+            int age = Period.between(dayOfBirth, getDate()).getYears();
+
+            if (age > 17) {
+                launchOverage();
+            } else {
+                launchUnderage();
             }
         });
     }
 
+
+    private void launchOverage() {
+        setContentView(R.layout.overage);
+        ConstraintLayout layout = findViewById(R.id.overage);
+        layout.setOnClickListener(v -> launchMainActivity());
+    }
+
+
+    private void launchUnderage() {
+        setContentView(R.layout.underage);
+    }
+
+
+    private void launchMainActivity() {
+        setContentView(R.layout.activity_main);
+
+        Button button1 = findViewById(R.id.button1);
+        button1.setOnClickListener(v -> startActivity(new Intent(Start.this, Busfahrer.class)));
+
+        Button button2 = findViewById(R.id.button2);
+        button2.setOnClickListener(v -> startActivity(new Intent(Start.this, Dreimann_Regeln.class)));
+
+        Button button3 = findViewById(R.id.button3);
+        button3.setOnClickListener(v -> startActivity(new Intent(Start.this, KingsCup.class)));
+    }
+
+
     private long getMillis() {
         return System.currentTimeMillis() - 86400000;
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private LocalDate getDate() {
