@@ -8,9 +8,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.DatePicker;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
-
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
@@ -18,10 +15,10 @@ import java.time.ZoneId;
 import java.util.Calendar;
 
 public class Start extends AppCompatActivity {
-    private final LocalDate birthDate = Instant.ofEpochMilli(getMillis()).atZone(ZoneId.systemDefault()).toLocalDate();
-    private int birthDay = birthDate.getDayOfMonth();
-    private int birthMonth = birthDate.getMonthValue();
-    private int birthYear = birthDate.getYear();
+    private final LocalDate initialDate = Instant.ofEpochMilli(getMillis()).atZone(ZoneId.systemDefault()).toLocalDate();
+    private int birthDay = initialDate.getDayOfMonth();
+    private int birthMonth = initialDate.getMonthValue();
+    private int birthYear = initialDate.getYear();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
