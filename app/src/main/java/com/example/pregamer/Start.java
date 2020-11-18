@@ -12,12 +12,13 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
+import java.util.Calendar;
 
 public class Start extends AppCompatActivity {
-    private final LocalDate birthDate = Instant.ofEpochMilli(getMillis()).atZone(ZoneId.systemDefault()).toLocalDate();
-    private int birthDay = birthDate.getDayOfMonth();
-    private int birthMonth = birthDate.getMonthValue();
-    private int birthYear = birthDate.getYear();
+    private final LocalDate initialDate = Instant.ofEpochMilli(getMillis()).atZone(ZoneId.systemDefault()).toLocalDate();
+    private int birthDay = initialDate.getDayOfMonth();
+    private int birthMonth = initialDate.getMonthValue();
+    private int birthYear = initialDate.getYear();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,12 @@ public class Start extends AppCompatActivity {
         Button playAsGuest = findViewById(R.id.guest_play);
 
         playAsGuest.setOnClickListener(v -> launchWarning());
+    }
+
+    @Override
+    public void onBackPressed(){
+        //make Back Button acting like Home Button
+        moveTaskToBack(true);
     }
 
 
@@ -44,6 +51,7 @@ public class Start extends AppCompatActivity {
 
         DatePicker dateOfBirth = findViewById(R.id.datePicker);
         dateOfBirth.setMaxDate(getMillis());
+        dateOfBirth.setFirstDayOfWeek(Calendar.MONDAY);
 
         dateOfBirth.setOnDateChangedListener((view, year, monthOfYear, dayOfMonth) -> {
             birthDay = dayOfMonth;
