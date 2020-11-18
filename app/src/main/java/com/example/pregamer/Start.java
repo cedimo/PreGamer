@@ -1,11 +1,9 @@
 package com.example.pregamer;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -15,14 +13,12 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
 public class Start extends AppCompatActivity {
     private final LocalDate birthDate = Instant.ofEpochMilli(getMillis()).atZone(ZoneId.systemDefault()).toLocalDate();
     private int birthDay = birthDate.getDayOfMonth();
     private int birthMonth = birthDate.getMonthValue();
     private int birthYear = birthDate.getYear();
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +30,6 @@ public class Start extends AppCompatActivity {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void launchWarning() {
         setContentView(R.layout.warning);
 
@@ -44,7 +39,6 @@ public class Start extends AppCompatActivity {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void launchAgeInput() {
         setContentView(R.layout.age);
 
@@ -103,7 +97,6 @@ public class Start extends AppCompatActivity {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private LocalDate getDate() {
         return LocalDate.now();
     }
