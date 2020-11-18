@@ -8,18 +8,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PreGamer">
-        <activity android:name=".Start">
+        android:theme="@style/Theme.PreGamer" >
+        <activity android:name=".Start" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Dreimann" />
-        <activity android:name=".Dreimann_Regeln" />
-        <activity android:name=".Busfahrer" />
-        <activity android:name=".KingsCup" />
+        <activity android:name=".Dreimann" android:screenOrientation="portrait" />
+        <activity android:name=".Dreimann_Regeln" android:screenOrientation="portrait" />
+        <activity android:name=".Busfahrer" android:screenOrientation="portrait" />
+        <activity android:name=".KingsCup" android:screenOrientation="portrait" />
     </application>
 
 </manifest>
