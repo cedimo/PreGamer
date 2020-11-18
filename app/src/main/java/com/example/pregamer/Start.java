@@ -8,10 +8,14 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
+import java.util.Calendar;
 
 public class Start extends AppCompatActivity {
     private final LocalDate birthDate = Instant.ofEpochMilli(getMillis()).atZone(ZoneId.systemDefault()).toLocalDate();
@@ -29,6 +33,12 @@ public class Start extends AppCompatActivity {
         playAsGuest.setOnClickListener(v -> launchWarning());
     }
 
+    @Override
+    public void onBackPressed(){
+        //make Back Button acting like Home Button
+        moveTaskToBack(true);
+    }
+
 
     private void launchWarning() {
         setContentView(R.layout.warning);
@@ -44,6 +54,7 @@ public class Start extends AppCompatActivity {
 
         DatePicker dateOfBirth = findViewById(R.id.datePicker);
         dateOfBirth.setMaxDate(getMillis());
+        dateOfBirth.setFirstDayOfWeek(Calendar.MONDAY);
 
         dateOfBirth.setOnDateChangedListener((view, year, monthOfYear, dayOfMonth) -> {
             birthDay = dayOfMonth;
