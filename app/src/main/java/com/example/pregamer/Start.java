@@ -5,14 +5,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class Start extends AppCompatActivity {
     private final LocalDate initialDate = Instant.ofEpochMilli(getMillis()).atZone(ZoneId.systemDefault()).toLocalDate();
@@ -28,6 +31,16 @@ public class Start extends AppCompatActivity {
         Button playAsGuest = findViewById(R.id.guest_play);
 
         playAsGuest.setOnClickListener(v -> launchWarning());
+
+
+        //------------------------------------------------------------------------------------------
+        // only for development to skip age verification by pressing logo
+        // @Todo DELETE IN FINAL VERSION
+
+        ImageView logo = findViewById(R.id.logo_first);
+        logo.setClickable(true);
+        logo.setOnClickListener(v -> launchMainActivity());
+        //------------------------------------------------------------------------------------------
     }
 
     @Override
@@ -76,8 +89,16 @@ public class Start extends AppCompatActivity {
 
     private void launchOverage() {
         setContentView(R.layout.overage);
+
+        //wait one second to proceed
+        Handler handler = new Handler();
+        handler.postDelayed(this::launchMainActivity, 1000);
+
+        /*
+        //touch anywhere on screen to proceed
         ConstraintLayout layout = findViewById(R.id.overage);
         layout.setOnClickListener(v -> launchMainActivity());
+        */
     }
 
 
