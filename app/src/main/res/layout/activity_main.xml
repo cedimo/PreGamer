@@ -13,7 +13,7 @@
         android:layout_marginTop="60dp"
         android:text="Alle Trinkspiele"
         android:textColor="@color/purple_our"
-        android:textSize="36sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_main"
         app:rippleColor="@color/purple_our"
-        app:strokeColor="@color/grey_our"
+        app:strokeColor="@color/purple_our"
         app:strokeWidth="2dp" />
 
     <Button
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button1"
         app:rippleColor="@color/purple_our"
-        app:strokeColor="@color/grey_our"
+        app:strokeColor="@color/purple_our"
         app:strokeWidth="2dp" />
 
     <Button
@@ -68,6 +68,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
         app:rippleColor="@color/purple_our"
-        app:strokeColor="@color/grey_our"
+        app:strokeColor="@color/purple_our"
         app:strokeWidth="2dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

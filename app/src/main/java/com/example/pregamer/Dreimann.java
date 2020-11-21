@@ -13,43 +13,42 @@ public class Dreimann extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_dreimann);
+
+        rollTheDice();
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int left_cube, right_cube;
-
-                left_cube = (int) (Math.random()*6+1);
-                right_cube = (int) (Math.random()*6+1);
-
-                ImageView leftCubeImage = (ImageView) findViewById(R.id.leftCubeImage);
-                ImageView rightCubeImage = (ImageView) findViewById(R.id.rightCubeImage);
-                leftCubeImage.setImageResource(R.drawable.cube1);
-
-                switch (left_cube) {
-                    case 1: leftCubeImage.setImageResource(R.drawable.cube1); break;
-                    case 2: leftCubeImage.setImageResource(R.drawable.cube2); break;
-                    case 3: leftCubeImage.setImageResource(R.drawable.cube3); break;
-                    case 4: leftCubeImage.setImageResource(R.drawable.cube4); break;
-                    case 5: leftCubeImage.setImageResource(R.drawable.cube5); break;
-                    case 6: leftCubeImage.setImageResource(R.drawable.cube6); break;
-                }
-                double leftRotation = Math.random()*720 -360;
-                leftCubeImage.setRotation((float) leftRotation);
-
-                switch (right_cube) {
-                    case 1: rightCubeImage.setImageResource(R.drawable.cube1); break;
-                    case 2: rightCubeImage.setImageResource(R.drawable.cube2); break;
-                    case 3: rightCubeImage.setImageResource(R.drawable.cube3); break;
-                    case 4: rightCubeImage.setImageResource(R.drawable.cube4); break;
-                    case 5: rightCubeImage.setImageResource(R.drawable.cube5); break;
-                    case 6: rightCubeImage.setImageResource(R.drawable.cube6); break;
-                }
-                double rightRotation = Math.random()*720 -360;
-                rightCubeImage.setRotation((float) rightRotation);
+                rollTheDice();
             }
         });
+    }
+
+    private void rollTheDice() {
+        ImageView leftCubeImage = (ImageView) findViewById(R.id.leftCubeImage);
+        ImageView rightCubeImage = (ImageView) findViewById(R.id.rightCubeImage);
+
+        rollTheDiceView(leftCubeImage);
+        rollTheDiceView(rightCubeImage);
+    }
+
+    private void rollTheDiceView(ImageView imageView) {
+        int cubeNumber = (int) (Math.random()*6+1);
+
+        switch (cubeNumber) {
+            case 1: cubeNumber = R.drawable.cube1; break;
+            case 2: cubeNumber = R.drawable.cube2; break;
+            case 3: cubeNumber = R.drawable.cube3; break;
+            case 4: cubeNumber = R.drawable.cube4; break;
+            case 5: cubeNumber = R.drawable.cube5; break;
+            case 6: cubeNumber = R.drawable.cube6; break;
+        }
+        imageView.setImageResource(cubeNumber);
+
+        double rotation = Math.random()*720 -360;
+        imageView.setRotation((float) rotation);
     }
 }

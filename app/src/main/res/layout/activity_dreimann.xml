@@ -13,7 +13,7 @@
         android:layout_marginTop="60dp"
         android:text="Dreimann"
         android:textColor="@color/red_our"
-        android:textSize="36sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -27,7 +27,7 @@
         android:layout_marginTop="30dp"
         android:text="Du hast Folgendes gewürfelt:"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_main" />
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.95"
         app:rippleColor="@color/red_our"
-        app:strokeColor="@color/grey_our"
+        app:strokeColor="@color/red_our"
         app:strokeWidth="2dp" />
 
     <ImageView
