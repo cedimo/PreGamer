@@ -2,8 +2,8 @@ package com.example.pregamer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,7 +16,7 @@ public class Dreimann extends AppCompatActivity {
 
         setContentView(R.layout.activity_dreimann);
 
-        rollTheDice();
+        initializeDice();
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -27,15 +27,28 @@ public class Dreimann extends AppCompatActivity {
         });
     }
 
+    private void initializeDice() {
+        ImageView leftCubeImage = (ImageView) findViewById(R.id.leftCubeImage);
+        ImageView rightCubeImage = (ImageView) findViewById(R.id.rightCubeImage);
+
+        rollSingleDice(leftCubeImage);
+        rollSingleDice(rightCubeImage);
+    }
+
     private void rollTheDice() {
         ImageView leftCubeImage = (ImageView) findViewById(R.id.leftCubeImage);
         ImageView rightCubeImage = (ImageView) findViewById(R.id.rightCubeImage);
 
-        rollTheDiceView(leftCubeImage);
-        rollTheDiceView(rightCubeImage);
+        Handler handler = new Handler();
+        for(int i=0; i<10; i++){
+            handler.postDelayed(() -> {
+                rollSingleDice(leftCubeImage);
+                rollSingleDice(rightCubeImage);
+            }, 100*i);
+        }
     }
 
-    private void rollTheDiceView(ImageView imageView) {
+    private void rollSingleDice(ImageView imageView) {
         int cubeNumber = (int) (Math.random()*6+1);
 
         switch (cubeNumber) {
