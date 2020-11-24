@@ -26,28 +26,8 @@
                 android:layout_margin="20dp"
                 android:text="Dreimann"
                 android:textColor="@color/purple_our"
-                android:textSize="36sp"
+                android:textSize="32sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/textview_border"
-                android:lineSpacingExtra="10dp"
-                android:padding="20dp"
-                android:text="@string/dreimann_rules"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView"
-                app:strokeColor="@color/grey_our"
-                app:strokeWidth="2dp" />
-
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
@@ -63,8 +43,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title_main"
                 app:rippleColor="@color/purple_our"
+                app:strokeColor="@color/purple_our"
+                app:strokeWidth="2dp"/>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/textview_border"
+                android:lineSpacingExtra="10dp"
+                android:padding="20dp"
+                android:text="@string/dreimann_rules"
+                android:justificationMode="inter_word"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView"
                 app:strokeColor="@color/grey_our"
                 app:strokeWidth="2dp" />
+
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,7 +26,7 @@
                 android:layout_margin="20dp"
                 android:text="Busfahrer"
                 android:textColor="@color/red_our"
-                android:textSize="36sp"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -37,11 +37,12 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/textview_border"
+                android:justificationMode="inter_word"
                 android:lineSpacingExtra="10dp"
                 android:padding="20dp"
                 android:text="@string/busfahrer_rules"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView"
