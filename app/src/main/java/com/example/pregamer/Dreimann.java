@@ -19,8 +19,6 @@ public class Dreimann extends AppCompatActivity {
     private ImageView leftCubeImage;
     private ImageView rightCubeImage;
     private TextView resultText;
-    private TextView oneDiceText;
-    private TextView twoDiceText;
     private SwitchMaterial diceSwitch;
     private Button button;
 
@@ -35,17 +33,15 @@ public class Dreimann extends AppCompatActivity {
         rightCubeImage = (ImageView) findViewById(R.id.rightCubeImage);
 
         resultText = findViewById(R.id.resultText);
-        oneDiceText = findViewById(R.id.oneDiceText);
-        twoDiceText = findViewById(R.id.twoDiceText);
 
-        // random values
+        // random values at start
         initializeDice();
 
         // hide two dice at start
         leftCubeImage.setVisibility(View.INVISIBLE);
         rightCubeImage.setVisibility(View.INVISIBLE);
 
-        // rolling dice button
+        // button to roll dice
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(v -> rollTheDice());
 
@@ -57,14 +53,13 @@ public class Dreimann extends AppCompatActivity {
                 singleCubeImage.setVisibility(View.INVISIBLE);
                 leftCubeImage.setVisibility(View.VISIBLE);
                 rightCubeImage.setVisibility(View.VISIBLE);
-                resultText.setVisibility(View.INVISIBLE);
             } else {
                 oneDice = true;
                 singleCubeImage.setVisibility(View.VISIBLE);
                 leftCubeImage.setVisibility(View.INVISIBLE);
                 rightCubeImage.setVisibility(View.INVISIBLE);
-                resultText.setVisibility(View.INVISIBLE);
             }
+            resultText.setVisibility(View.INVISIBLE);
         });
     }
 
@@ -77,8 +72,6 @@ public class Dreimann extends AppCompatActivity {
     private void rollTheDice() {
         button.setEnabled(false);
         diceSwitch.setEnabled(false);
-        oneDiceText.setEnabled(false);
-        twoDiceText.setEnabled(false);
         resultText.setVisibility(View.INVISIBLE);
 
         // result values of rolling the dice
@@ -89,17 +82,18 @@ public class Dreimann extends AppCompatActivity {
         Handler handler = new Handler();
         for(int i=0; i<10; i++){
             handler.postDelayed(() -> {
-                resultSingle.set(rollSingleDice(singleCubeImage));
-                resultLeft.set(rollSingleDice(leftCubeImage));
-                resultRight.set(rollSingleDice(rightCubeImage));
+                if(oneDice) {
+                    resultSingle.set(rollSingleDice(singleCubeImage));
+                } else {
+                    resultLeft.set(rollSingleDice(leftCubeImage));
+                    resultRight.set(rollSingleDice(rightCubeImage));
+                }
             }, 100*i);
         }
 
         handler.postDelayed(() -> {
             button.setEnabled(true);
             diceSwitch.setEnabled(true);
-            oneDiceText.setEnabled(true);
-            twoDiceText.setEnabled(true);
 
             // logic for result
             int sum = resultLeft.get() + resultRight.get();
