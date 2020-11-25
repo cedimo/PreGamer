@@ -57,10 +57,9 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="160dp"
-        android:rotation="21"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/rightCubeImage"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,14 +71,73 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="160dp"
-        android:rotation="-21"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/leftCubeImage"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/cube6" />
+
+    <ImageView
+        android:id="@+id/singleCubeImage"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="160dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/cube6" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/diceSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:theme="@style/OurSwitchTheme"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/oneDiceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="1 Würfel"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/diceSwitch"
+        app:layout_constraintEnd_toStartOf="@+id/diceSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/diceSwitch" />
+
+    <TextView
+        android:id="@+id/twoDiceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="2 Würfel"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/diceSwitch"
+        app:layout_constraintStart_toEndOf="@+id/diceSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/diceSwitch" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center|top"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:lineSpacingExtra="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singleCubeImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
